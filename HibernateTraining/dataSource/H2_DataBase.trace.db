@@ -1,0 +1,3 @@
+05-06 15:41:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Численное значение вне допустимого диапазона: "4070281011"
+Numeric value out of range: "4070281011" [22003-176]

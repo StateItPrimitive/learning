@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="H2 - H2_DataBase" uuid="9937997a-2194-4a33-bec8-a2da078197dd">
+    <database-info product="H2" version="1.3.176 (2014-04-05)" jdbc-version="4.0" driver-name="H2 JDBC Driver" driver-version="1.3.176 (2014-04-05)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <schema name="PUBLIC" catalog="H2_DATABASE"/>
+    <table name="ACCOUNTS" schema="PUBLIC" catalog="H2_DATABASE" type="TABLE">
+      <column name="ACCOUNT_NUMBER" sqlType="DECIMAL" precision="10" scale="0" nullable="false" jdbcType="3" def="KE5FWFQgVkFMVUUgRk9SIFBVQkxJQy5TWVNURU1fU0VRVUVOQ0VfMjYxNDlGQjBfMzQwOF80QjMwXzhDNkZfQ0ZDRTlBQUU3ODY4KQ==" autoIncrement="true"/>
+      <column name="REST" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3" def="MC4w"/>
+      <column name="CLIENT_ID_REF" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="CONSTRAINT_A" columns="ACCOUNT_NUMBER"/>
+      <foreign-key name="ACCOUNTS_CLIENTS_ID_FK" columns="CLIENT_ID_REF" ref-table="CLIENTS" ref-schema="PUBLIC" ref-catalog="H2_DATABASE" ref-columns="ID" update-rule="1" delete-rule="1" deferrability="2"/>
+      <index name="ACCOUNTS_ACCOUNT_NUMBER_uindex" unique="true" columns="ACCOUNT_NUMBER"/>
+      <index name="ACCOUNTS_CLIENTS_ID_FK_INDEX_A" unique="false" columns="CLIENT_ID_REF"/>
+    </table>
+    <table name="CLIENTS" schema="PUBLIC" catalog="H2_DATABASE" type="TABLE">
+      <column name="ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4" def="KE5FWFQgVkFMVUUgRk9SIFBVQkxJQy5TWVNURU1fU0VRVUVOQ0VfQThEMkY4ODdfRkY3Q180QkZGXzg5RjFfRTc3NEZCMDlBQzk2KQ==" autoIncrement="true"/>
+      <column name="FIO" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="CONSTRAINT_5" columns="ID"/>
+      <index name="CLIENTS_ID_uindex" unique="true" columns="ID"/>
+    </table>
+  </data-source>
+</component>
