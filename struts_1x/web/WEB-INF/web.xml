@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <context-param>
+        <param-name>contextInitParameterName</param-name>
+        <param-value>contextInitParameterValue</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>HelloWorld</servlet-name>
+        <servlet-class>servlets.easy.HelloWorld</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RequestInfo</servlet-name>
+        <servlet-class>servlets.easy.RequestInfo</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RequestHeaders</servlet-name>
+        <servlet-class>servlets.easy.RequestHeaders</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Parameters</servlet-name>
+        <servlet-class>servlets.easy.Parameters</servlet-class>
+        <init-param>
+            <param-name>servletInitParameterName</param-name>
+            <param-value>servletInitParameterValue</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RequestParameters</servlet-name>
+        <servlet-class>servlets.easy.RequestParameters</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RequestParametersFromRadioButton</servlet-name>
+        <servlet-class>servlets.easy.RequestParametersFromRadioButton</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Cookies</servlet-name>
+        <servlet-class>servlets.easy.Cookies</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>HelloWorld</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RequestInfo</servlet-name>
+        <url-pattern>/  </url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RequestHeaders</servlet-name>
+        <url-pattern>/requestHeaders</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Parameters</servlet-name>
+        <url-pattern>/parameters</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RequestParameters</servlet-name>
+        <url-pattern>/requestParameters</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RequestParametersFromRadioButton</servlet-name>
+        <url-pattern>/requestParametersFromRadioButton</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Cookies</servlet-name>
+        <url-pattern>/cookies</url-pattern>
+    </servlet-mapping>
+</web-app>
