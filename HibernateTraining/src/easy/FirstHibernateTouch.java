@@ -1,4 +1,4 @@
-package HibernateEasy;
+package easy;
 
 import org.hibernate.Query;
 import org.hibernate.Session;

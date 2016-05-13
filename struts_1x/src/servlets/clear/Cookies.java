@@ -1,4 +1,4 @@
-package servlets.easy;
+package servlets.clear;
 
 import util.TableBuilder;
 
@@ -25,16 +25,18 @@ public class Cookies extends HttpServlet {
         out.println("<h3>All kind of parameters</h3>");
 
         TableBuilder tableBuilder = new TableBuilder(out);
-        tableBuilder.openTable("Cookie list");
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie: cookies) {
-            tableBuilder.buildRow(cookie.getName(), cookie.getValue());
+        if (cookies != null) {
+            tableBuilder.openTable("Cookie list");
+            for (Cookie cookie: cookies) {
+                tableBuilder.buildRow(cookie.getName(), cookie.getValue());
+            }
+            tableBuilder.closeTable();
         }
-        tableBuilder.closeTable();
 
-        tableBuilder.openTable("Got cookie");
         String name = request.getParameter("cookieName");
         if (name != null && !name.isEmpty()) {
+            tableBuilder.openTable("Got cookie:");
             String value = request.getParameter("cookieValue");
             tableBuilder.buildRow("Cookie name", name);
             tableBuilder.buildRow("Cookie value", value);

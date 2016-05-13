@@ -1,4 +1,4 @@
-package servlets.easy;
+package servlets.clear;
 
 import util.HTMLFilter;
 import util.TableBuilder;
@@ -33,22 +33,31 @@ public class RequestParameters extends HttpServlet {
             out.println("No previous request parameter, Please enter some");
         }
 
+        out.println("<form action=\"requestParameters\" method=GET>");
+        out.println("Send new parameters by GET request:");
+        out.println("<input type=text size=20 name=\"requestParameter\"><br>");
+        out.println("<input type=\"submit\">");
+        out.println("</form><br>");
+
         out.println("<form action=\"requestParameters\" method=POST>");
-        out.println("You can enter a new request parameter also:");
+        out.println("Send new parameters by POST request:");
         out.println("<input type=text size=20 name=\"requestParameter\"><br>");
         out.println("<input type=\"submit\">");
         out.println("</form><br>");
 
         TableBuilder tableBuilder = new TableBuilder(out);
-        tableBuilder.openTable("Got url request parameters");
+
         Map<String, String[]> parametersMap = request.getParameterMap();
-        for (Map.Entry<String, String[]> parameterEntry : parametersMap.entrySet()) {
-            for (String parameterEntryValue : parameterEntry.getValue()) {
-                if (!parameterEntry.getKey().equals(FORM_REQUEST_PARAMETER_NAME))
-                    tableBuilder.buildRow(parameterEntry.getKey(), parameterEntryValue);
+        if (!parametersMap.isEmpty()) {
+            tableBuilder.openTable("Got url request parameters");
+            for (Map.Entry<String, String[]> parameterEntry : parametersMap.entrySet()) {
+                for (String parameterEntryValue : parameterEntry.getValue()) {
+                    if (!parameterEntry.getKey().equals(FORM_REQUEST_PARAMETER_NAME))
+                        tableBuilder.buildRow(parameterEntry.getKey(), parameterEntryValue);
+                }
             }
+            tableBuilder.closeTable();
         }
-        tableBuilder.closeTable();
         out.println("</body>");
         out.println("</html>");
     }

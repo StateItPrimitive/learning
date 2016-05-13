@@ -4,13 +4,13 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:h2:file:C:\Users\sbt-yablokov-mv\IdeaProjects\HibernateTraining\dataSource\H2_DataBase</property>
+    <property name="connection.url">jdbc:h2:file:C:\Users\sbt-yablokov-mv\IdeaProjects\hibernate\dataSource\H2_DataBase</property>
     <property name="connection.driver_class">org.h2.Driver</property>
     <property name="dialect">org.hibernate.dialect.H2Dialect</property>
     <property name="connection.username">yablokov</property>
     <property name="connection.password">keepItSimple4Me</property>
-    <mapping class="HibernateEasy.AccountsEntity"/>
-    <mapping class="HibernateEasy.ClientsEntity"/>
+    <mapping class="easy.AccountsEntity"/>
+    <mapping class="easy.ClientsEntity"/>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>

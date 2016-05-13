@@ -1,4 +1,4 @@
-package servlets.easy;
+package servlets.clear;
 
 import util.TableBuilder;
 

@@ -1,4 +1,4 @@
-package servlets.easy;
+package servlets.clear;
 
 import util.TableBuilder;
 
@@ -13,8 +13,8 @@ import java.util.Date;
 import java.util.Enumeration;
 
 public class SessionInfo extends HttpServlet {
-    private static final String CONTEXT_INIT_PARAMETER_NAME = "contextInitParameterName";
-    private static final String SERVLET_INIT_PARAMETER_NAME = "servletInitParameterName";
+    private static final String SESSION_ATTRIBUTE_NAME = "sessionAttributeName";
+    private static final String SESSION_ATTRIBUTE_VALUE = "sessionAttributeValue";
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
@@ -23,10 +23,10 @@ public class SessionInfo extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html>");
         out.println("<head>");
-        out.println("<title>Parameters</title>");
+        out.println("<title>" + this.getClass().getName() + "</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h3>All kind of parameters</h3>");
+        out.println("<h3>Session info</h3>");
 
         HttpSession session = request.getSession(true);
 
@@ -39,12 +39,18 @@ public class SessionInfo extends HttpServlet {
         tableBuilder.buildRow("Last Accessed", accessed.toString());
         tableBuilder.closeTable();
 
-        // set session info if needed
-        String dataName = request.getParameter("dataName");
-        if (dataName != null && !dataName.isEmpty()) {
-            String dataValue = request.getParameter("dataValue");
-            session.setAttribute(dataName, dataValue);
-        }
+        String sessionAttributeName = request.getParameter(SESSION_ATTRIBUTE_NAME);
+        String sessionAttributeValue = request.getParameter(SESSION_ATTRIBUTE_VALUE);
+        if (sessionAttributeName != null && !sessionAttributeName.isEmpty())
+            if (sessionAttributeValue != null && !sessionAttributeValue.isEmpty())
+                session.setAttribute(sessionAttributeName, sessionAttributeValue);
+
+        out.println("<form action=\"sessionInfo\" method=POST>");
+        out.println("Send new parameters by POST request:<br>");
+        out.println("Session attribute name<input type=text size=20 name=" + SESSION_ATTRIBUTE_NAME + "><br>");
+        out.println("Session attribute value<input type=text size=20 name=" + SESSION_ATTRIBUTE_VALUE + "><br>");
+        out.println("<input type=\"submit\">");
+        out.println("</form><br>");
 
         tableBuilder.openTable("Session content");
         for (Enumeration attributeNames = session.getAttributeNames(); attributeNames.hasMoreElements();) {

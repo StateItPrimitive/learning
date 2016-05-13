@@ -1,4 +1,4 @@
-package HibernateEasy;
+package easy;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;

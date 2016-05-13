@@ -1,4 +1,4 @@
-package HibernateEasy;
+package easy;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,4 +1,4 @@
-package servlets.easy;
+package servlets.clear;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
