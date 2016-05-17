@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by sbt-yablokov-mv on 13.05.2016.
  */
-public class TagImplementation_HelloJSP extends TagSupport {
+public class Hello_TagImplementation extends TagSupport {
     private String myName = null;
 
     public String getMyName() {

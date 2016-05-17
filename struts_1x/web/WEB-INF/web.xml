@@ -3,10 +3,29 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <!-- parameters -->
+
     <context-param>
         <param-name>contextInitParameterName</param-name>
         <param-value>contextInitParameterValue</param-value>
     </context-param>
+
+    <!-- jsp-configs -->
+
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://firstUsingTags</taglib-uri>
+            <taglib-location>/WEB-INF/tld/servlets-html.tld</taglib-location>
+        </taglib>
+
+        <taglib>
+            <taglib-uri>http://struts-html</taglib-uri>
+            <taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+    <!-- clear servlets -->
 
     <servlet>
         <servlet-name>action</servlet-name>
@@ -19,23 +38,23 @@
     </servlet>
 
     <servlet>
-        <servlet-name>HelloWorld</servlet-name>
-        <servlet-class>servlets.easy.HelloWorld</servlet-class>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>servlets.clear.Hello</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>RequestInfo</servlet-name>
-        <servlet-class>servlets.easy.RequestInfo</servlet-class>
+        <servlet-class>servlets.clear.RequestInfo</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>RequestHeaders</servlet-name>
-        <servlet-class>servlets.easy.RequestHeaders</servlet-class>
+        <servlet-class>servlets.clear.RequestHeaders</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>Parameters</servlet-name>
-        <servlet-class>servlets.easy.Parameters</servlet-class>
+        <servlet-class>servlets.clear.Parameters</servlet-class>
         <init-param>
             <param-name>servletInitParameterName</param-name>
             <param-value>servletInitParameterValue</param-value>
@@ -44,18 +63,62 @@
 
     <servlet>
         <servlet-name>RequestParameters</servlet-name>
-        <servlet-class>servlets.easy.RequestParameters</servlet-class>
+        <servlet-class>servlets.clear.RequestParameters</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>RequestParametersFromRadioButton</servlet-name>
-        <servlet-class>servlets.easy.RequestParametersFromRadioButton</servlet-class>
+        <servlet-class>servlets.clear.RequestParametersFromRadioButton</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>Cookies</servlet-name>
-        <servlet-class>servlets.easy.Cookies</servlet-class>
+        <servlet-class>servlets.clear.Cookies</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>SessionInfo</servlet-name>
+        <servlet-class>servlets.clear.SessionInfo</servlet-class>
+    </servlet>
+
+    <!-- servlets with jsp -->
+
+    <servlet>
+        <servlet-name>HelloJSP</servlet-name>
+        <servlet-class>servlets.with_jsp.Hello</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ArithmeticJSP</servlet-name>
+        <servlet-class>servlets.with_jsp.Arithmetic</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ComparisonJSP</servlet-name>
+        <servlet-class>servlets.with_jsp.Comparison</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CompositeExpressionsJSP</servlet-name>
+        <servlet-class>servlets.with_jsp.CompositeExpressions</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>FunctionJSP</servlet-name>
+        <servlet-class>servlets.with_jsp.Function</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RepeatTagJSP</servlet-name>
+        <servlet-class>servlets.with_jsp.RepeatTag</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PanelUsingTLD</servlet-name>
+        <servlet-class>servlets.with_jsp.PanelUsingTLD</servlet-class>
+    </servlet>
+
+    <!-- mappings -->
 
     <servlet-mapping>
         <servlet-name>action</servlet-name>
@@ -63,13 +126,13 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>HelloWorld</servlet-name>
-        <url-pattern>/hello</url-pattern>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/helloServlet</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>RequestInfo</servlet-name>
-        <url-pattern>/  </url-pattern>
+        <url-pattern>/requestInfo</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
@@ -96,4 +159,45 @@
         <servlet-name>Cookies</servlet-name>
         <url-pattern>/cookies</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SessionInfo</servlet-name>
+        <url-pattern>/sessionInfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>HelloJSP</servlet-name>
+        <url-pattern>/hello.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ArithmeticJSP</servlet-name>
+        <url-pattern>/arithmetic.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ComparisonJSP</servlet-name>
+        <url-pattern>/comparison.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CompositeExpressionsJSP</servlet-name>
+        <url-pattern>/compositeExpressions.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>FunctionJSP</servlet-name>
+        <url-pattern>/function.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RepeatTagJSP</servlet-name>
+        <url-pattern>/repeatTag.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PanelUsingTLD</servlet-name>
+        <url-pattern>/panelUsingTLD.jsp</url-pattern>
+    </servlet-mapping>
+            
 </web-app>

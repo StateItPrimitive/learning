@@ -6,20 +6,14 @@
         version="2.1">
 
     <tlib-version>1.0</tlib-version>
-    <short-name>myshortname</short-name>
-    <uri>http://mycompany.com</uri>
-
+    <short-name>struts-html</short-name>
+    <uri>http://struts-html</uri>
+    
     <tag>
-        <name>helloJSP</name>
-        <tag-class>servlets.with_jsp.TagImplementation_HelloJSP</tag-class>
-        <body-content>empty</body-content>
-        <attribute>
-            <name>myName</name>
-            <required>false</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
+        <name></name>
+        <tag-class></tag-class>
+        <body-content></body-content>
     </tag>
-
 
     <!-- Invoke 'Generate' action to add tags or functions -->
 

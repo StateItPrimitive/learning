@@ -5,14 +5,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 /**
  * Created by sbt-yablokov-mv on 13.05.2016.
  */
-public class HelloJSP extends HttpServlet {
-    private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle("servlets.with_jsp.LocalStrings");
+public class Hello extends HttpServlet {
+    private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle("resources/servlets");
 
     private String getBundleKeyName(HttpServletRequest request) {
         String useTLD = request.getParameter("useTLD");
@@ -23,8 +22,6 @@ public class HelloJSP extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {
         response.setContentType("text/html;charset=utf-8");
-
-        Map<String, String[]> parametersMap = request.getParameterMap();
 
         String fullPathToJSP = RESOURCE_BUNDLE.getString(getBundleKeyName(request));
         getServletContext().getRequestDispatcher(fullPathToJSP + "?myName=Max").forward(request, response);

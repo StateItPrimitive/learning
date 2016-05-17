@@ -8,10 +8,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class RequestHeaders extends HttpServlet {
-    private String getTableRow(String requestParmName, String requestParmValue) {
-        return "<tr> <td><b>" + requestParmName + " :</b></td> <td>" + requestParmValue + "</td> </tr>";
-    }
-
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {

@@ -5,4 +5,16 @@
         "http://struts.apache.org/dtds/struts-config_1_3.dtd">
 
 <struts-config>
+    <form-beans>
+        <form-bean name="lookupForm" type="struts.beans.LookupForm"></form-bean>
+    </form-beans>
+    
+    <action-mappings>
+        <action path="/lookup" type="struts.actions.LookupAction" name="lookupForm" scope="request" validate="true" input="/WEB-INF/jsp/struts/index.jsp">
+            <forward name="success" path="/WEB-INF/jsp/struts/result.jsp" />
+            <forward name="failure" path="/WEB-INF/jsp/struts/index.jsp" />
+        </action>
+    </action-mappings>
+    
+    <message-resources parameter="resources.struts" />
 </struts-config>

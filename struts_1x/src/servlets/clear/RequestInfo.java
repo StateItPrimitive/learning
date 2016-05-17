@@ -13,10 +13,6 @@ import java.io.PrintWriter;
  * Created by sbt-yablokov-mv on 11.05.2016.
  */
 public class RequestInfo extends HttpServlet {
-    private String getTableRow(String requestParmName, String requestParmValue) {
-        return "<tr> <td><b>" + requestParmName + " :</b></td> <td>" + requestParmValue + "</td> </tr>";
-    }
-
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {
