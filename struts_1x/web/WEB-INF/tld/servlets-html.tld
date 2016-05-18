@@ -7,7 +7,7 @@
 
     <tlib-version>1.0</tlib-version>
     <short-name>firstUsingTags</short-name>
-    <uri>http://native_firstUsingTags</uri>
+    <uri>http://firstUsingTags</uri>
 
     <tag>
         <name>helloJSP</name>

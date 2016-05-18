@@ -11,20 +11,6 @@
         <param-value>contextInitParameterValue</param-value>
     </context-param>
 
-    <!-- jsp-configs -->
-
-    <jsp-config>
-        <taglib>
-            <taglib-uri>http://firstUsingTags</taglib-uri>
-            <taglib-location>/WEB-INF/tld/servlets-html.tld</taglib-location>
-        </taglib>
-
-        <taglib>
-            <taglib-uri>http://struts-html</taglib-uri>
-            <taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
-        </taglib>
-    </jsp-config>
-
     <!-- clear servlets -->
 
     <servlet>
