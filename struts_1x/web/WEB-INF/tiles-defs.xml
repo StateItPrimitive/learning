@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+        "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/jsp/tiles/myTile.jsp">
+        <put type="string" name="title" value=""/>
+        <put type="string" name="header" value="Base header tile" />
+        <put type="string" name="footer" value="Base footer tile" />
+        <put type="string" name="body" value="" />
+    </definition>
+
+    <definition name="child1.definition" extends="base.definition">
+        <put type="string" name="title" value="Child 1 title tile"/>
+        <put type="string" name="body" value="Child 1 body tile" />
+    </definition>
+
+    <definition name="child2.definition" extends="base.definition">
+        <put type="string" name="title" value="Child 2 title tile"/>
+        <put type="string" name="body" value="Child 2 body tile" />
+    </definition>
+</tiles-definitions>

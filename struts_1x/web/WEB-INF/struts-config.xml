@@ -11,10 +11,16 @@
     
     <action-mappings>
         <action path="/lookup" type="struts.actions.LookupAction" name="lookupForm" scope="request" validate="true" input="/WEB-INF/jsp/struts/index.jsp">
-            <forward name="success" path="/WEB-INF/jsp/struts/result.jsp" />
-            <forward name="failure" path="/WEB-INF/jsp/struts/index.jsp" />
+            <forward name="Success" path="/WEB-INF/jsp/struts/result.jsp" />
+            <forward name="Failure" path="/WEB-INF/jsp/struts/index.jsp" />
         </action>
     </action-mappings>
-    
-    <message-resources parameter="resources.struts" />
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="resources.struts"/>
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property value="/WEB-INF/tiles-defs.xml" property="definitions-config"/>
+    </plug-in>
 </struts-config>

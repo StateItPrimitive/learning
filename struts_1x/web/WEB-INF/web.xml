@@ -118,6 +118,13 @@
         <servlet-class>servlets.with_jsp.PanelUsingTLD</servlet-class>
     </servlet>
 
+    <!-- servlets with jsp and tiles -->
+
+    <servlet>
+        <servlet-name>Tiles</servlet-name>
+        <servlet-class>servlets.with_jsp.Tiles</servlet-class>
+    </servlet>
+
     <!-- mappings -->
 
     <servlet-mapping>
@@ -198,6 +205,11 @@
     <servlet-mapping>
         <servlet-name>PanelUsingTLD</servlet-name>
         <url-pattern>/panelUsingTLD.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Tiles</servlet-name>
+        <url-pattern>/tiles.jsp</url-pattern>
     </servlet-mapping>
             
 </web-app>

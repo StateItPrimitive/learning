@@ -27,10 +27,11 @@ public class LookupAction extends Action {
             clientId = lookupForm.getClientId();
         }
 
-        if (clientId == null) {
+        if (clientId == null || clientId.equals(0)) {
             target = RESOURCE_BUNDLE.getString("forward.lookup.failure");
             ActionErrors actionErrors = new ActionErrors();
-            actionErrors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage("errors.lookup.unknown", clientId));
+            String actionMessageKey = (clientId == null) ? "errors.lookup.id.required" : "errors.lookup.id.unknown";
+            actionErrors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage(actionMessageKey, clientId));
             saveErrors(request, actionErrors);
         } else {
             String clientFio = getClientFio(clientId);
