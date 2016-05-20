@@ -43,7 +43,7 @@ public class LookupAction extends Action {
         return (mapping.findForward(target));
     }
 
-    enum QueryType { CREATE_HQL, NAMED_HQL, NAMED_SQL }
+    private enum QueryType { CREATE_HQL, NAMED_HQL, NAMED_SQL }
 
     private Query getClientAccountsQuery(Session session, Integer clientId, QueryType queryType) {
         switch (queryType) {
@@ -62,14 +62,18 @@ public class LookupAction extends Action {
         List<Long> result = new ArrayList<>();
         final Session session = HibernateSessionFactory.getSession();
         try {
-            Query query = getClientAccountsQuery(session, clientId, QueryType.NAMED_HQL);
+//            Transaction transaction = session.beginTransaction();
+            Query query = getClientAccountsQuery(session, clientId, QueryType.NAMED_SQL);
             List clientList = query.list();
             if (clientList != null && !clientList.isEmpty()) {
                 ClientsEntity client = (ClientsEntity) clientList.get(0);
-                for (AccountsEntity account: client.getAccounts()) {
+                for (AccountsEntity account : client.getAccounts()) {
                     result.add(account.getNumber());
                 }
             }
+//            transaction.commit();
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         } finally {
             session.close();
         }
@@ -88,6 +92,8 @@ public class LookupAction extends Action {
                     result.add(account.getNumber());
                 }
             }
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         } finally {
             session.close();
         }
@@ -104,6 +110,8 @@ public class LookupAction extends Action {
                 ClientsEntity client = (ClientsEntity) clientList.get(0);
                 result = client.getFio();
             }
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         } finally {
             session.close();
         }
