@@ -19,8 +19,8 @@
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
 
     <message-resources parameter="resources.struts"/>
-
     <plug-in className="org.apache.struts.tiles.TilesPlugin">
         <set-property value="/WEB-INF/tiles-defs.xml" property="definitions-config"/>
     </plug-in>
+
 </struts-config>

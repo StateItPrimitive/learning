@@ -40,15 +40,47 @@ public class LookupAction extends Action {
             List<Long> clientAccounts = getClientAccounts(clientId);
             lookupForm.setClientAccounts(clientAccounts);
         }
-//        super.execute(mapping, form, request, response)
         return (mapping.findForward(target));
+    }
+
+    enum QueryType { CREATE_HQL, NAMED_HQL, NAMED_SQL }
+
+    private Query getClientAccountsQuery(Session session, Integer clientId, QueryType queryType) {
+        switch (queryType) {
+            case CREATE_HQL:
+                return session.createQuery("from ClientsEntity where id=" + clientId);
+            case NAMED_HQL:
+                return session.getNamedQuery("getClientById_hql").setInteger("clientId", clientId);
+            case NAMED_SQL:
+                return session.getNamedQuery("getClientById_sql").setInteger("clientId", clientId);
+            default:
+                return null;
+        }
     }
 
     private List<Long> getClientAccounts(Integer clientId) {
         List<Long> result = new ArrayList<>();
         final Session session = HibernateSessionFactory.getSession();
         try {
-            Query query = session.createQuery("from ClientsEntity where id=" + clientId);
+            Query query = getClientAccountsQuery(session, clientId, QueryType.NAMED_HQL);
+            List clientList = query.list();
+            if (clientList != null && !clientList.isEmpty()) {
+                ClientsEntity client = (ClientsEntity) clientList.get(0);
+                for (AccountsEntity account: client.getAccounts()) {
+                    result.add(account.getNumber());
+                }
+            }
+        } finally {
+            session.close();
+        }
+        return result;
+    }
+
+    private List<Long> getClientAccounts_usingNamedQuery(Integer clientId) {
+        List<Long> result = new ArrayList<>();
+        final Session session = HibernateSessionFactory.getSession();
+        try {
+            Query query = session.getNamedQuery("getClientById_hql").setLong("clientId", clientId);
             List clientList = query.list();
             if (clientList != null && !clientList.isEmpty()) {
                 ClientsEntity client = (ClientsEntity) clientList.get(0);

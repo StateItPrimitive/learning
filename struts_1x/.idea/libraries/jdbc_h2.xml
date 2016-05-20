@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="jdbc-h2">
+  <library name="jdbc_h2">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/jdbc-h2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdbc_h2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

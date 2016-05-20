@@ -3,9 +3,21 @@ package hibernate;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-/**
- * Created by sbt-yablokov-mv on 16.05.2016.
- */
+@NamedQueries({
+    @NamedQuery(
+        name = "getClientById_hql",
+        query = "from ClientsEntity clients where clients.id=:clientId"
+    )
+})
+
+@NamedNativeQueries({
+    @NamedNativeQuery(
+        name = "getClientById_sql",
+        query = "select * from clients where clients.id=:clientId",
+        resultClass = ClientsEntity.class
+    )
+})
+
 @Entity
 @Table(name = "ACCOUNTS", schema = "PUBLIC", catalog = "H2_DATABASE")
 public class AccountsEntity {

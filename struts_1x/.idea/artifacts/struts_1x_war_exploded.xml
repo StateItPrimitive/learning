@@ -2,17 +2,17 @@
   <artifact type="exploded-war" name="struts_1x:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/struts_1x_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="struts_1x/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="struts_1x" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="struts-1.3.x" />
-          <element id="library" level="project" name="Hibernate 4.2.2-4.2.2" />
-          <element id="library" level="project" name="jdbc-h2" />
+          <element id="library" level="project" name="jdbc_h2" />
+          <element id="library" level="project" name="Hibernate 4.2.2" />
+          <element id="library" level="project" name="struts" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="struts_1x/web/Web" />
     </root>
   </artifact>
 </component>
