@@ -8,7 +8,7 @@ import use.MyProxyInterfaceImplementation;
 /**
  * Created by sbt-yablokov-mv on 06.06.2016.
  */
-public class MyDynamicProxyTest {
+public class NativeDynamicProxyTest {
     @Test
     public void newInstance() throws Exception {
 
@@ -16,7 +16,7 @@ public class MyDynamicProxyTest {
 
     @Before
     public void setUp() throws Exception {
-//        MyProxyInterfaceImplementation<Integer> realization = (MyProxyInterfaceImplementation<Integer>) MyDynamicProxy.newInstance(new MyProxyInterfaceImplementation<Integer>(), MyProxyInterface.class);
+//        MyProxyInterfaceImplementation<Integer> realization = (MyProxyInterfaceImplementation<Integer>) NativeDynamicProxy.newInstance(new MyProxyInterfaceImplementation<Integer>(), MyProxyInterface.class);
 //        realization.setData(new Integer(1));
 //        Integer i = realization.getData();
 //        int a = 1;

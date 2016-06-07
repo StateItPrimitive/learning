@@ -1,24 +1,25 @@
 package lib;
 
 import use.MyProxyInterface;
+import use.MyProxyInterface2;
 import use.MyProxyInterfaceImplementation;
 
 import java.lang.reflect.*;
 
-class MyDynamicProxy implements InvocationHandler {
+class NativeDynamicProxy implements InvocationHandler {
     Object obj;
 
-    public MyDynamicProxy(Object obj) {
+    public NativeDynamicProxy(Object obj) {
         this.obj = obj;
     }
 
     static public Object newInstance(Object obj, Class... interfaces)
     {
-        return Proxy.newProxyInstance(obj.getClass().getClassLoader(), interfaces, new MyDynamicProxy(obj));
+        return Proxy.newProxyInstance(obj.getClass().getClassLoader(), interfaces, new NativeDynamicProxy(obj));
     }
 
     static public <T> T getNewInstance(T obj) {
-        return (T)Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), new MyDynamicProxy(obj));
+        return (T)Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), new NativeDynamicProxy(obj));
     }
 
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -64,9 +65,12 @@ class MyDynamicProxy implements InvocationHandler {
 
     public static void main(String[] args) {
         MyProxyInterfaceImplementation<Integer> obj = new MyProxyInterfaceImplementation<>();
-        MyProxyInterface proxyObj = MyDynamicProxy.getNewInstance((MyProxyInterface)obj); // (MyProxyInterface) MyDynamicProxy.newInstance(obj, obj.getClass().getInterfaces())
-        proxyObj.getData();
-        proxyObj.setData(1);
-        proxyObj.setNotGenericData(1);
+        MyProxyInterface proxyObj1 = NativeDynamicProxy.getNewInstance((MyProxyInterface)obj); // (MyProxyInterface) NativeDynamicProxy.newInstance(obj, obj.getClass().getInterfaces())
+        proxyObj1.getData();
+        proxyObj1.setData(1);
+
+        MyProxyInterface2 proxyObj2 = NativeDynamicProxy.getNewInstance((MyProxyInterface2)obj); // (MyProxyInterface) NativeDynamicProxy.newInstance(obj, obj.getClass().getInterfaces())
+        proxyObj2.setNotGenericData(1);
+        proxyObj2.setList(null);
     }
 }

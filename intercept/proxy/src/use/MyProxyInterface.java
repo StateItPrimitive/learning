@@ -6,5 +6,4 @@ package use;
 public interface MyProxyInterface<T> {
     T getData();
     void setData(T data);
-    void setNotGenericData(Integer data);
 }
