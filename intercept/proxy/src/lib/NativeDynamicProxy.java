@@ -6,7 +6,7 @@ import use.MyProxyInterfaceImplementation;
 
 import java.lang.reflect.*;
 
-class NativeDynamicProxy implements InvocationHandler {
+public class NativeDynamicProxy implements InvocationHandler {
     Object obj;
 
     public NativeDynamicProxy(Object obj) {

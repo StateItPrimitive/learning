@@ -4,6 +4,12 @@
       <root url="jar://$PROJECT_DIR$/lib/cglib-nodep-3.2.2.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/cglib-3.2.2.zip!/cglib-RELEASE_3_2_2/cglib-integration-test/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/cglib-3.2.2.zip!/cglib-RELEASE_3_2_2/cglib-jmh/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/cglib-3.2.2.zip!/cglib-RELEASE_3_2_2/cglib-sample/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/cglib-3.2.2.zip!/cglib-RELEASE_3_2_2/cglib/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/cglib-3.2.2.zip!/cglib-RELEASE_3_2_2/cglib/src/test/java" />
+    </SOURCES>
   </library>
 </component>

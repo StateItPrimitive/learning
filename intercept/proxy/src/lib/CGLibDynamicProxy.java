@@ -41,6 +41,7 @@ public class CGLibDynamicProxy implements MethodInterceptor {
 
     public static void main(String[] args) {
         MyProxyInterfaceImplementation<Integer> obj = new MyProxyInterfaceImplementation<>();
+        obj.setData(2);
 
         MyProxyInterfaceImplementation proxyObj = CGLibDynamicProxy.getNewInstance(obj);
         proxyObj.getData();

@@ -11,9 +11,19 @@ public class MyProxyInterfaceImplementation<T> implements MyProxyInterface<T>, M
     private T data;
     private List<T> list;
 
+    public MyProxyInterfaceImplementation() {
+        data = null;
+        list = null;
+    }
+
+    public MyProxyInterfaceImplementation(T data, List<T> list) {
+        this.data = data;
+        this.list = list;
+    }
+
     @Override
     public T getData() {
-        System.out.println("ֲûחמג " + this.getClass().getName() + ".getData()");
+        System.out.println("ֲûחמג " + this.getClass().getName() + ".getData() return " + data);
         return data;
     }
 
