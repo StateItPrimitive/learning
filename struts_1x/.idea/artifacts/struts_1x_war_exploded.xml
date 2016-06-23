@@ -5,11 +5,13 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="struts_1x" />
+          <element id="dir-copy" path="$PROJECT_DIR$/src/resources" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="jdbc_h2" />
           <element id="library" level="project" name="Hibernate 4.2.2" />
           <element id="library" level="project" name="struts" />
+          <element id="library" level="project" name="log4j" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="struts_1x/web/Web" />

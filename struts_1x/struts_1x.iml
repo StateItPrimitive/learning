@@ -41,5 +41,15 @@
     <orderEntry type="library" name="Hibernate 4.2.2" level="project" />
     <orderEntry type="library" name="Java EE 6" level="project" />
     <orderEntry type="library" name="struts" level="project" />
+    <orderEntry type="library" name="log4j" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/src/resources" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

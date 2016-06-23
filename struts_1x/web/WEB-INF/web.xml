@@ -4,12 +4,42 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <!--listeners-->
+
+    <listener>
+        <listener-class>listeners.MyServletContextAttributeListener</listener-class>
+    </listener>
+
     <!-- parameters -->
 
     <context-param>
         <param-name>contextInitParameterName</param-name>
         <param-value>contextInitParameterValue</param-value>
     </context-param>
+
+    <!-- filters -->
+
+    <filter>
+        <filter-name>filter1</filter-name>
+        <filter-class>filters.MyFilter1</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>filter2</filter-name>
+        <filter-class>filters.MyFilter2</filter-class>
+    </filter>
+
+    <!-- filters mapping -->
+
+    <filter-mapping>
+        <filter-name>filter1</filter-name>
+        <url-pattern>/requestInfo</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>filter2</filter-name>
+        <url-pattern>/requestInfo</url-pattern>
+    </filter-mapping>
 
     <!-- clear servlets -->
 
@@ -111,7 +141,7 @@
         <servlet-class>servlets.with_jsp.Tiles</servlet-class>
     </servlet>
 
-    <!-- mappings -->
+    <!-- servlets mappings -->
 
     <servlet-mapping>
         <servlet-name>action</servlet-name>

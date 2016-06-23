@@ -13,8 +13,8 @@ import java.util.Date;
 import java.util.Enumeration;
 
 public class SessionInfo extends HttpServlet {
-    private static final String SESSION_ATTRIBUTE_NAME = "sessionAttributeName";
-    private static final String SESSION_ATTRIBUTE_VALUE = "sessionAttributeValue";
+    public static final String SESSION_ATTRIBUTE_NAME = "sessionAttributeName";
+    public static final String SESSION_ATTRIBUTE_VALUE = "sessionAttributeValue";
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
